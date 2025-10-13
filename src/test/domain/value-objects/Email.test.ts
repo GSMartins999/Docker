@@ -1,4 +1,4 @@
-import { Email } from "./../../domain/value-objects/Email"
+import { Email } from "../../../domain/value-objects/Email"
 
 
 describe("Email", () => {

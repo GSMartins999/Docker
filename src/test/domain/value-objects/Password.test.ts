@@ -1,4 +1,4 @@
-import { Password } from "./../../domain/value-objects/Password"
+import { Password } from "../../../domain/value-objects/Password"
 
 describe("Password", () => {
     it('Deve criar a senha válida', () => {

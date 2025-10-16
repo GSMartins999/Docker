@@ -4,7 +4,7 @@ import { Email } from '../value-objects/Email';
 import { Password } from '../value-objects/Password';
 
 export class RegisterUser {
-  constructor(private readonly userRepository: IUserRepository) {}
+  constructor(private readonly userRepository: IUserRepository) { }
 
   async execute(params: {
     email: string;
@@ -15,7 +15,7 @@ export class RegisterUser {
     const userExists = await this.userRepository.findByEmail(email);
 
     if (userExists) {
-      throw new Error('User already exists');
+      throw new Error('Usuário já existe.');
     }
 
     const hashedPassword = await this.hashPassword(password);

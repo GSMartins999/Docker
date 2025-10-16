@@ -1,17 +1,14 @@
 import { IUserRepository } from "../repositories/UserRepository";
 
 export class DeleteUser {
-    constructor (private readonly userRepository: IUserRepository) {}
+    constructor(private readonly userRepository: IUserRepository) { }
 
-    async execute(params: {id: string}): Promise<void>{
-        const {id} = params;
-
+    async execute({ id }: { id: string }) {
         const user = await this.userRepository.findById(id);
-
-        if(!user){
-            throw new Error("User not found");
+        if (!user) {
+            return;
         }
-
         await this.userRepository.delete(id);
     }
+
 }

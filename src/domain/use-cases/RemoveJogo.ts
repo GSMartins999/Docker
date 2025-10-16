@@ -7,7 +7,7 @@ export class RemoveJogo {
     const jogo = await this.JogoRepository.findById(IDJogo);
 
     if (!jogo) {
-      throw new Error("Jogo não encontrado");
+      return;
     }
 
     await this.JogoRepository.delete(IDJogo);

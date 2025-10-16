@@ -6,7 +6,7 @@ import { DataLancamento } from "../value-objects/DataLancamento";
 import { URL } from "../value-objects/URL";
 
 export class EditJogo {
-  constructor(private readonly jogoRepository: JogoRecord) {}
+  constructor(private readonly jogoRepository: JogoRecord) { }
 
   async execute(params: {
     IDJogo: number;
@@ -19,8 +19,9 @@ export class EditJogo {
 
     const existingJogo = await this.jogoRepository.findById(IDJogo);
     if (!existingJogo) {
-      throw new Error("Jogo não encontrado");
+      throw new Error("Jogo não encontrado para edição.");
     }
+
 
     const nomeVO = nome ? NomeDoJogo.create(nome) : existingJogo.NomeDoJogo;
     const descVO = desc ? Descricao.create(desc) : existingJogo.Descricao;

@@ -3,11 +3,18 @@ export class Descricao {
 
   static create(value: string): Descricao {
     if (!value || value.trim().length === 0) {
-      throw new Error("A descrição não pode estar vazia.");
+      throw new Error("A descrição é obrigatória.");
     }
-    if (value.length > 1000) {
-      throw new Error("A descrição é muito longa (máx. 1000 caracteres).");
+
+    if (value.length < 10) {
+      throw new Error("A descrição deve ter no mínimo 10 caracteres.");
     }
+
+    if (value.length > 500) {
+      throw new Error("A descrição deve ter no máximo 500 caracteres.");
+    }
+
     return new Descricao(value.trim());
   }
 }
+
